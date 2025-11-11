@@ -58,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -124,10 +124,10 @@ TextureImporter:
       name: player1_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 6
-        width: 32
-        height: 50
+        x: 17
+        y: 7
+        width: 30
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: player1_1
       rect:
         serializedVersion: 2
-        x: 83
-        y: 5
-        width: 28
-        height: 50
+        x: 84
+        y: 6
+        width: 26
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: player1_2
       rect:
         serializedVersion: 2
-        x: 147
-        y: 5
-        width: 28
-        height: 51
+        x: 148
+        y: 6
+        width: 26
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +190,10 @@ TextureImporter:
       name: player1_3
       rect:
         serializedVersion: 2
-        x: 207
-        y: 9
-        width: 33
-        height: 50
+        x: 208
+        y: 10
+        width: 31
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: player1_4
       rect:
         serializedVersion: 2
-        x: 270
-        y: 6
-        width: 35
-        height: 50
+        x: 271
+        y: 7
+        width: 33
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: player1_5
       rect:
         serializedVersion: 2
-        x: 339
-        y: 5
-        width: 28
-        height: 50
+        x: 340
+        y: 6
+        width: 26
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +256,10 @@ TextureImporter:
       name: player1_6
       rect:
         serializedVersion: 2
-        x: 403
-        y: 4
-        width: 28
-        height: 52
+        x: 404
+        y: 5
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,10 +278,10 @@ TextureImporter:
       name: player1_7
       rect:
         serializedVersion: 2
-        x: 463
-        y: 6
-        width: 33
-        height: 53
+        x: 464
+        y: 7
+        width: 31
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 87ee9bd3e53f9464aac822deac057f66
     internalID: 0
     vertices: []
     indices: 
