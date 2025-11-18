@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ab353a8b6db3a82438de944bd3b99f7c
+guid: 05ab7853446607441acfecc8d4438bea
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
-    fileImportMode: 1
+    fileImportMode: 0
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
@@ -85,7 +85,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
-    fileImportMode: 1
+    fileImportMode: 0
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638980487366619859
+  platformSettingsDirtyTick: 638988149127698267
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,7 +123,29 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Frame_0
+  - name: camino2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 32
+      height: 32
+    spriteID: f38068a3490cd9b40b7dbd3107d2d34e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  spriteSheetImportData:
+  - name: camino2_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -133,9 +155,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 21
-      height: 21
-    spriteID: 7f0779f6b187b1a45ab7e5a37b72ffa7
+      width: 32
+      height: 32
+    spriteID: e23e048fa9a0e6b4e9280ed8c41de4ae
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -143,60 +165,29 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-  - name: Frame_1
-    originalName: 
-    pivot: {x: 0.61904764, y: 0.15}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 33
-      width: 21
-      height: 20
-    spriteID: 6a17f414e73d0794baccf55dd0588596
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 33}
-  spriteSheetImportData: []
+    uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 1131258571
+      value0: 193013217
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: cholo
+    name: camino2
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_0
+    - name: camino2
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 3
-        y: -3
-        width: 21
-        height: 21
-      spriteId: 7f0779f6b187b1a45ab7e5a37b72ffa7
-    - name: Frame_1
-      frameIndex: 1
-      additiveSortOrder: 0
-      cellRect:
-        x: 3
-        y: -3
-        width: 21
-        height: 20
-      spriteId: 6a17f414e73d0794baccf55dd0588596
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: f38068a3490cd9b40b7dbd3107d2d34e
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -240,4 +231,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 32}
-  previousTextureSize: {x: 32, y: 64}
+  previousTextureSize: {x: 64, y: 64}
