@@ -134,8 +134,11 @@ GameObject:
   - component: {fileID: 49083089}
   - component: {fileID: 49083088}
   - component: {fileID: 49083087}
+<<<<<<< HEAD
   - component: {fileID: 49083094}
   - component: {fileID: 49083095}
+=======
+>>>>>>> ef5002d4a4c0f646e848af5ef2d8a6bdcaaafee6
   m_Layer: 0
   m_Name: player1_0
   m_TagString: Player
@@ -162,7 +165,10 @@ MonoBehaviour:
   capaDelSuelo:
     serializedVersion: 2
     m_Bits: 1
+<<<<<<< HEAD
   puntoRespawn: {fileID: 1596840688}
+=======
+>>>>>>> ef5002d4a4c0f646e848af5ef2d8a6bdcaaafee6
 --- !u!114 &49083088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,13 +349,18 @@ Transform:
   m_GameObject: {fileID: 49083086}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -5.839, y: 0.377, z: -0.000000059604645}
+=======
+  m_LocalPosition: {x: -3.67, y: 0.6199999, z: -0.000000059604645}
+>>>>>>> ef5002d4a4c0f646e848af5ef2d8a6bdcaaafee6
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2011229152}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &49083094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,6 +566,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 799585647}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> ef5002d4a4c0f646e848af5ef2d8a6bdcaaafee6
 --- !u!1 &564519790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,6 +1358,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+<<<<<<< HEAD
 --- !u!1001 &746953938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1723,6 +1737,8 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 799585644}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: ab353a8b6db3a82438de944bd3b99f7c, type: 3}
+=======
+>>>>>>> ef5002d4a4c0f646e848af5ef2d8a6bdcaaafee6
 --- !u!1 &1329032453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,6 +1858,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+<<<<<<< HEAD
 --- !u!1 &1596840687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,6 +1890,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> ef5002d4a4c0f646e848af5ef2d8a6bdcaaafee6
 --- !u!1 &1845808603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,6 +2076,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 49083093}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &3313284407650217222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2171,6 +2191,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc16a6d95196f1b4484c3568a5da18f1, type: 3}
+=======
+>>>>>>> ef5002d4a4c0f646e848af5ef2d8a6bdcaaafee6
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2178,8 +2200,11 @@ SceneRoots:
   - {fileID: 49083093}
   - {fileID: 1329032455}
   - {fileID: 1845808608}
+<<<<<<< HEAD
   - {fileID: 746953938}
   - {fileID: 978489634}
   - {fileID: 1596840688}
   - {fileID: 1188867506}
   - {fileID: 7216831326392378528}
+=======
+>>>>>>> ef5002d4a4c0f646e848af5ef2d8a6bdcaaafee6
