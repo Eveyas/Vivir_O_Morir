@@ -13,6 +13,8 @@ public class Player1_Movimiento : MonoBehaviour
     public Rigidbody2D rb;
     public Transform checkSuelo;
     public LayerMask capaDelSuelo;
+    public float gravityScale = 1f;
+    public int maxSaltos = 1; // 1 = salto simple, 2 = doble salto, etc.
 
     // --- Respawn ---
     [Header("Configuración Respawn")]
@@ -22,6 +24,7 @@ public class Player1_Movimiento : MonoBehaviour
     private float inputHorizontal;
     private bool estaEnSuelo;
     private bool estaMuerto = false;
+    private int saltosUsados = 0;
 
     private const float radioCheckSuelo = 0.2f;
 
@@ -29,6 +32,12 @@ public class Player1_Movimiento : MonoBehaviour
     {
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
+
+        // Asegurar que el Rigidbody2D tenga una gravedad razonable
+        if (rb != null)
+        {
+            rb.gravityScale = gravityScale;
+        }
     }
 
     void Start()
@@ -45,19 +54,29 @@ public class Player1_Movimiento : MonoBehaviour
     void Update()
     {
         if (estaMuerto) return;
-
-        if (checkSuelo != null)
-        {
-            estaEnSuelo = Physics2D.OverlapCircle(checkSuelo.position, radioCheckSuelo, capaDelSuelo);
-        }
     }
 
     void FixedUpdate()
     {
         if (estaMuerto) return;
 
+        // --- Comprobación de suelo (física) ---
+        if (checkSuelo != null)
+        {
+            bool enSuelo = Physics2D.OverlapCircle(checkSuelo.position, radioCheckSuelo, capaDelSuelo);
+            if (enSuelo && !estaEnSuelo)
+            {
+                // Acabó de tocar suelo: resetear contador de saltos
+                saltosUsados = 0;
+            }
+            estaEnSuelo = enSuelo;
+        }
+
         // --- Movimiento Horizontal ---
-        rb.linearVelocity = new Vector2(inputHorizontal * velocidadMovimiento, rb.linearVelocity.y);
+            if (rb != null)
+        {
+            rb.linearVelocity = new Vector2(inputHorizontal * velocidadMovimiento, rb.linearVelocity.y);
+        }
     }
 
     // -------------------------------------------------------------------
@@ -75,14 +94,23 @@ public class Player1_Movimiento : MonoBehaviour
     {
         if (estaMuerto) return;
 
-        if (value.isPressed && estaEnSuelo)
+        if (!value.isPressed) return;
+
+        // Permitir salto si está en suelo o si quedan saltos disponibles (p. ej. doble salto)
+        if (estaEnSuelo || saltosUsados < maxSaltos)
         {
-            Debug.Log("Salto DETECTADO y estaba en suelo");
-            rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+            Debug.Log("Salto DETECTADO");
+            if (rb != null)
+            {
+                // Normalizar la velocidad vertical antes de aplicar impulso para saltos consistentes
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+                rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+            }
+            saltosUsados++;
         }
-        else if (value.isPressed && !estaEnSuelo)
+        else
         {
-            Debug.Log("Intentaste saltar pero NO está en suelo");
+            Debug.Log("Intentaste saltar pero NO está en suelo y no quedan saltos");
         }
     }
 
