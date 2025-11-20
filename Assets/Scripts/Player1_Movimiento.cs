@@ -33,7 +33,6 @@ public class Player1_Movimiento : MonoBehaviour
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
 
-        // Asegurar que el Rigidbody2D tenga una gravedad razonable
         if (rb != null)
         {
             rb.gravityScale = gravityScale;
