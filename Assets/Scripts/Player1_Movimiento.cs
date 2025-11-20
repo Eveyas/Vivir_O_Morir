@@ -27,6 +27,7 @@ public class Player1_Movimiento : MonoBehaviour
     private bool estaMuerto = false;
     private bool estaAturdido = false;
     private int saltosUsados = 0;
+    private Collider2D playerCollider;
 
     private const float radioCheckSuelo = 0.2f;
 
@@ -39,6 +40,16 @@ public class Player1_Movimiento : MonoBehaviour
         if (rb != null)
         {
             rb.gravityScale = gravityScale;
+            // Usar detección continua para colisiones más suaves
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        }
+
+        // Asignar un PhysicsMaterial2D sin fricción para evitar que el jugador "se pegue" en esquinas
+        playerCollider = GetComponent<Collider2D>();
+        if (playerCollider != null)
+        {
+            var mat = new PhysicsMaterial2D("Player_NoFriction") { friction = 0f, bounciness = 0f };
+            playerCollider.sharedMaterial = mat;
         }
     }
 
@@ -78,6 +89,13 @@ public class Player1_Movimiento : MonoBehaviour
             if (rb != null)
         {
             rb.linearVelocity = new Vector2(inputHorizontal * velocidadMovimiento, rb.linearVelocity.y);
+        }
+
+        // Evitar quedar pegado en esquinas: si estamos en suelo, el input es activo pero
+        // la velocidad horizontal es casi cero, damos un pequeño empujón en la dirección del input.
+        if (rb != null && estaEnSuelo && Mathf.Abs(inputHorizontal) > 0.1f && Mathf.Abs(rb.linearVelocity.x) < 0.1f && !estaAturdido)
+        {
+            rb.AddForce(new Vector2(inputHorizontal * velocidadMovimiento * 0.15f, 0f), ForceMode2D.Impulse);
         }
     }
 
