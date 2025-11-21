@@ -61,12 +61,37 @@ public class Player2_Movimiento : MonoBehaviour
         // --- Movimiento Horizontal ---
         // Nota: Si Unity te da error aquí, cambia rb.linearVelocity por rb.velocity
         rb.linearVelocity = new Vector2(inputHorizontal * velocidadMovimiento, rb.linearVelocity.y);
+
+        // --- Aplicar giro del Sprite ---
+        Girar();
+    }
+
+    // -------------------------------------------------------------------
+    // -------------------------- FUNCIÓN DE GIRO --------------------------
+    // -------------------------------------------------------------------
+
+    private void Girar()
+    {
+        // Solo aplica el giro si hay movimiento horizontal (inputHorizontal no es cero)
+        if (inputHorizontal != 0)
+        {
+            // La función Mathf.Sign() devuelve 1 (derecha) o -1 (izquierda).
+            float direccion = Mathf.Sign(inputHorizontal);
+
+            // Obtenemos la escala actual
+            Vector3 escalaActual = transform.localScale;
+
+            // Establecemos la escala X al valor de la dirección
+            escalaActual.x = direccion;
+            
+            // Aplicamos la nueva escala al Transform
+            transform.localScale = escalaActual;
+        }
     }
 
     // -------------------------------------------------------------------
     // -------------------------- INPUT SYSTEM ----------------------------
     // -------------------------------------------------------------------
-    // Estas funciones son llamadas por el componente Player Input del Player 2
     
     public void OnMove(InputValue value)
     {
