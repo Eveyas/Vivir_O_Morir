@@ -91,11 +91,37 @@ public class Player1_Movimiento : MonoBehaviour
             rb.linearVelocity = new Vector2(inputHorizontal * velocidadMovimiento, rb.linearVelocity.y);
         }
 
+        // --- Aplicar giro del Sprite ---
+        Girar();
+        
         // Evitar quedar pegado en esquinas: si estamos en suelo, el input es activo pero
         // la velocidad horizontal es casi cero, damos un pequeño empujón en la dirección del input.
         if (rb != null && estaEnSuelo && Mathf.Abs(inputHorizontal) > 0.1f && Mathf.Abs(rb.linearVelocity.x) < 0.1f && !estaAturdido)
         {
             rb.AddForce(new Vector2(inputHorizontal * velocidadMovimiento * 0.15f, 0f), ForceMode2D.Impulse);
+        }
+    }
+
+    // -------------------------------------------------------------------
+    // -------------------------- FUNCIÓN DE GIRO --------------------------
+    // -------------------------------------------------------------------
+
+    private void Girar()
+    {
+        // Solo aplica el giro si hay movimiento horizontal (inputHorizontal no es cero)
+        if (inputHorizontal != 0)
+        {
+            // La función Mathf.Sign() devuelve 1 (si es positivo/derecha) o -1 (si es negativo/izquierda).
+            float direccion = Mathf.Sign(inputHorizontal);
+
+            // Obtenemos la escala actual
+            Vector3 escalaActual = transform.localScale;
+
+            // Establecemos la escala X al valor de la dirección, manteniendo la escala Y y Z
+            escalaActual.x = direccion;
+            
+            // Aplicamos la nueva escala al Transform
+            transform.localScale = escalaActual;
         }
     }
 
