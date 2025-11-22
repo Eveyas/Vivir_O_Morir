@@ -1181,11 +1181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 884ccd8095e350f40b4d5192cf78a2e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.27
+      value: -2.18
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 884ccd8095e350f40b4d5192cf78a2e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.31
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 884ccd8095e350f40b4d5192cf78a2e6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1464,6 +1464,9 @@ MonoBehaviour:
   velocidadMax: 2.5
   cambioIntervalMin: 1
   cambioIntervalMax: 3
+  knockbackForce: 5
+  knockbackUpForce: 3
+  knockbackDuration: 0.5
 --- !u!61 &1073707239
 BoxCollider2D:
   m_ObjectHideFlags: 0
