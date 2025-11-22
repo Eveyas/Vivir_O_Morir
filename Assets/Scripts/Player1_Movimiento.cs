@@ -91,9 +91,15 @@ public class Player1_Movimiento : MonoBehaviour
             rb.linearVelocity = new Vector2(inputHorizontal * velocidadMovimiento, rb.linearVelocity.y);
         }
 
-<<<<<<< HEAD
         // --- Aplicar giro del Sprite ---
         Girar();
+        
+        // Evitar quedar pegado en esquinas: si estamos en suelo, el input es activo pero
+        // la velocidad horizontal es casi cero, damos un pequeño empujón en la dirección del input.
+        if (rb != null && estaEnSuelo && Mathf.Abs(inputHorizontal) > 0.1f && Mathf.Abs(rb.linearVelocity.x) < 0.1f && !estaAturdido)
+        {
+            rb.AddForce(new Vector2(inputHorizontal * velocidadMovimiento * 0.15f, 0f), ForceMode2D.Impulse);
+        }
     }
 
     // -------------------------------------------------------------------
@@ -116,13 +122,6 @@ public class Player1_Movimiento : MonoBehaviour
             
             // Aplicamos la nueva escala al Transform
             transform.localScale = escalaActual;
-=======
-        // Evitar quedar pegado en esquinas: si estamos en suelo, el input es activo pero
-        // la velocidad horizontal es casi cero, damos un pequeño empujón en la dirección del input.
-        if (rb != null && estaEnSuelo && Mathf.Abs(inputHorizontal) > 0.1f && Mathf.Abs(rb.linearVelocity.x) < 0.1f && !estaAturdido)
-        {
-            rb.AddForce(new Vector2(inputHorizontal * velocidadMovimiento * 0.15f, 0f), ForceMode2D.Impulse);
->>>>>>> 8d695932f610bdac719f33f16c13c8270adb7025
         }
     }
 
