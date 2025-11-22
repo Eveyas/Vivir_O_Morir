@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,7 +25,9 @@ public class Player1_Movimiento : MonoBehaviour
     private float inputHorizontal;
     private bool estaEnSuelo;
     private bool estaMuerto = false;
+    private bool estaAturdido = false;
     private int saltosUsados = 0;
+    private Collider2D playerCollider;
 
     private const float radioCheckSuelo = 0.2f;
 
@@ -36,6 +39,16 @@ public class Player1_Movimiento : MonoBehaviour
         if (rb != null)
         {
             rb.gravityScale = gravityScale;
+            // Usar detección continua para colisiones más suaves
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        }
+
+        // Asignar un PhysicsMaterial2D sin fricción para evitar que el jugador "se pegue" en esquinas
+        playerCollider = GetComponent<Collider2D>();
+        if (playerCollider != null)
+        {
+            var mat = new PhysicsMaterial2D("Player_NoFriction") { friction = 0f, bounciness = 0f };
+            playerCollider.sharedMaterial = mat;
         }
     }
 
@@ -52,12 +65,12 @@ public class Player1_Movimiento : MonoBehaviour
 
     void Update()
     {
-        if (estaMuerto) return;
+        if (estaMuerto || estaAturdido) return;
     }
 
     void FixedUpdate()
     {
-        if (estaMuerto) return;
+        if (estaMuerto || estaAturdido) return;
 
         // --- Comprobación de suelo (física) ---
         if (checkSuelo != null)
@@ -78,6 +91,7 @@ public class Player1_Movimiento : MonoBehaviour
             rb.linearVelocity = new Vector2(inputHorizontal * velocidadMovimiento, rb.linearVelocity.y);
         }
 
+<<<<<<< HEAD
         // --- Aplicar giro del Sprite ---
         Girar();
     }
@@ -102,6 +116,13 @@ public class Player1_Movimiento : MonoBehaviour
             
             // Aplicamos la nueva escala al Transform
             transform.localScale = escalaActual;
+=======
+        // Evitar quedar pegado en esquinas: si estamos en suelo, el input es activo pero
+        // la velocidad horizontal es casi cero, damos un pequeño empujón en la dirección del input.
+        if (rb != null && estaEnSuelo && Mathf.Abs(inputHorizontal) > 0.1f && Mathf.Abs(rb.linearVelocity.x) < 0.1f && !estaAturdido)
+        {
+            rb.AddForce(new Vector2(inputHorizontal * velocidadMovimiento * 0.15f, 0f), ForceMode2D.Impulse);
+>>>>>>> 8d695932f610bdac719f33f16c13c8270adb7025
         }
     }
 
@@ -111,14 +132,14 @@ public class Player1_Movimiento : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
-        if (estaMuerto) return;
+        if (estaMuerto || estaAturdido) return;
 
         inputHorizontal = value.Get<Vector2>().x;
     }
 
     public void OnJump(InputValue value)
     {
-        if (estaMuerto) return;
+        if (estaMuerto || estaAturdido) return;
 
         if (!value.isPressed) return;
 
@@ -159,6 +180,51 @@ public class Player1_Movimiento : MonoBehaviour
         inputHorizontal = 0f;
 
         Invoke(nameof(Respawn), 1f);
+    }
+
+    // -------------------------------------------------------------------
+    // ---------------------------- ATURDIMIENTO --------------------------
+    // -------------------------------------------------------------------
+
+    public void Aturdir(float dur)
+    {
+        if (estaMuerto) return;
+
+        // Iniciar coroutine de aturdimiento y limpiar la velocidad
+        StopAllCoroutines();
+        StartCoroutine(AturdirCoroutine(dur, true));
+    }
+
+    // Aplicar retroceso (knockback) y aturdir durante una duración
+    public void Knockback(Vector2 velocidadKnockback, float dur)
+    {
+        if (estaMuerto) return;
+
+        StopAllCoroutines();
+
+        if (rb != null)
+        {
+            rb.linearVelocity = velocidadKnockback;
+        }
+
+        StartCoroutine(AturdirCoroutine(dur, false));
+    }
+
+    private IEnumerator AturdirCoroutine(float dur, bool clearVelocity)
+    {
+        estaAturdido = true;
+
+        // Evitar que el jugador recupere la dirección previa al aturdimiento
+        inputHorizontal = 0f;
+
+        if (clearVelocity && rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+
+        yield return new WaitForSeconds(dur);
+
+        estaAturdido = false;
     }
 
     private void Respawn()
