@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 79857181eae03184dbe36c0254a9b14f
+guid: 0ce079ff0bf5801438c19631f90b52d4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2300111118388478681
-    second: piso_lvl2(2)_0
+      213: 3981487691237994998
+    second: cuadrado_0
+  - first:
+      213: 6094687433780123980
+    second: cuadrado_1
+  - first:
+      213: -2759621522263340598
+    second: cuadrado_2
+  - first:
+      213: 5158185326118282653
+    second: cuadrado_3
+  - first:
+      213: -354785115637194433
+    second: cuadrado_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: piso_lvl2(2)_0
+      name: cuadrado_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1079
-        height: 548
+        x: 9
+        y: 82
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 72d3784df1d5410e0800000000000000
-      internalID: -2300111118388478681
+      spriteID: 6f1b4d9d5f5114730800000000000000
+      internalID: 3981487691237994998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cuadrado_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 82
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4950831eeda49450800000000000000
+      internalID: 6094687433780123980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cuadrado_2
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 50
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac988fab8dad3b9d0800000000000000
+      internalID: -2759621522263340598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cuadrado_3
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 50
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d95a9e0993e859740800000000000000
+      internalID: 5158185326118282653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cuadrado_4
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 18
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3169da21dc831bf0800000000000000
+      internalID: -354785115637194433
       vertices: []
       indices: 
       edges: []
@@ -125,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 26f985c1a3d37a740aa29bd7a4dad066
+    spriteID: 345b96d1dfc12d6438fb4a1aa7ed386b
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      piso_lvl2(2)_0: -2300111118388478681
+      cuadrado_0: 3981487691237994998
+      cuadrado_1: 6094687433780123980
+      cuadrado_2: -2759621522263340598
+      cuadrado_3: 5158185326118282653
+      cuadrado_4: -354785115637194433
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
