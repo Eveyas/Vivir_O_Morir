@@ -12,6 +12,8 @@ public class EnemyMelee : MonoBehaviour
     public float attackRadius = 0.8f;
     public LayerMask playerLayer;
 
+    public Transform graphics; // <- AGREGAR ESTO
+
     private float lastAttackTime = 0f;
     private Rigidbody2D rb;
     private Animator anim;
@@ -32,7 +34,6 @@ public class EnemyMelee : MonoBehaviour
 
         float distance = Vector2.Distance(transform.position, player.position);
 
-        // FOLLOW
         if (distance < detectionRange && distance > attackRange)
         {
             FollowPlayer();
@@ -40,9 +41,9 @@ public class EnemyMelee : MonoBehaviour
         else
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            anim?.SetBool("Run", false);
         }
 
-        // ATTACK
         if (distance <= attackRange)
         {
             TryAttack();
@@ -63,11 +64,10 @@ public class EnemyMelee : MonoBehaviour
     {
         bool lookingRight = player.position.x > transform.position.x;
 
-        transform.localScale = lookingRight ? 
-            new Vector3(1, 1, 1) : 
+        graphics.localScale = lookingRight ?
+            new Vector3(1, 1, 1) :
             new Vector3(-1, 1, 1);
 
-        // 🔥 CAMBIAR LADO DEL ATTACKPOINT CON EL FLIP
         attackPoint.localPosition = new Vector3(
             lookingRight ? attackPointDefaultX : -attackPointDefaultX,
             attackPoint.localPosition.y,
@@ -81,7 +81,7 @@ public class EnemyMelee : MonoBehaviour
 
         lastAttackTime = Time.time;
 
-        anim?.SetTrigger("Attack"); // activar animación
+        anim?.SetTrigger("Attack");
 
         Collider2D hit = Physics2D.OverlapCircle(
             attackPoint.position,
@@ -102,8 +102,5 @@ public class EnemyMelee : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
         }
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }
