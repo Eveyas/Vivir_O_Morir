@@ -75,6 +75,7 @@ public class Player1_Movimiento : MonoBehaviour
         // --- Comprobación de suelo (física) ---
         if (checkSuelo != null)
         {
+            // Usamos Physics2D.OverlapCircle para detectar el suelo
             bool enSuelo = Physics2D.OverlapCircle(checkSuelo.position, radioCheckSuelo, capaDelSuelo);
             if (enSuelo && !estaEnSuelo)
             {
@@ -85,16 +86,42 @@ public class Player1_Movimiento : MonoBehaviour
         }
 
         // --- Movimiento Horizontal ---
-            if (rb != null)
+        if (rb != null)
         {
             rb.linearVelocity = new Vector2(inputHorizontal * velocidadMovimiento, rb.linearVelocity.y);
         }
 
+        // --- Aplicar giro del Sprite ---
+        Girar();
+        
         // Evitar quedar pegado en esquinas: si estamos en suelo, el input es activo pero
         // la velocidad horizontal es casi cero, damos un pequeño empujón en la dirección del input.
         if (rb != null && estaEnSuelo && Mathf.Abs(inputHorizontal) > 0.1f && Mathf.Abs(rb.linearVelocity.x) < 0.1f && !estaAturdido)
         {
             rb.AddForce(new Vector2(inputHorizontal * velocidadMovimiento * 0.15f, 0f), ForceMode2D.Impulse);
+        }
+    }
+
+    // -------------------------------------------------------------------
+    // -------------------------- FUNCIÓN DE GIRO --------------------------
+    // -------------------------------------------------------------------
+
+    private void Girar()
+    {
+        // Solo aplica el giro si hay movimiento horizontal (inputHorizontal no es cero)
+        if (inputHorizontal != 0)
+        {
+            // La función Mathf.Sign() devuelve 1 (si es positivo/derecha) o -1 (si es negativo/izquierda).
+            float direccion = Mathf.Sign(inputHorizontal);
+
+            // Obtenemos la escala actual
+            Vector3 escalaActual = transform.localScale;
+
+            // Establecemos la escala X al valor de la dirección, manteniendo la escala Y y Z
+            escalaActual.x = direccion;
+            
+            // Aplicamos la nueva escala al Transform
+            transform.localScale = escalaActual;
         }
     }
 
@@ -115,13 +142,13 @@ public class Player1_Movimiento : MonoBehaviour
 
         if (!value.isPressed) return;
 
-        // Permitir salto si está en suelo o si quedan saltos disponibles (p. ej. doble salto)
+        // Permitir salto si está en suelo o si quedan saltos disponibles
         if (estaEnSuelo || saltosUsados < maxSaltos)
         {
             Debug.Log("Salto DETECTADO");
             if (rb != null)
             {
-                // Normalizar la velocidad vertical antes de aplicar impulso para saltos consistentes
+                // Normalizar la velocidad vertical (ponerla a cero) antes de aplicar impulso para saltos consistentes
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
                 rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
             }
