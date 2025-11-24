@@ -6,19 +6,18 @@ public class PlayerHealth : MonoBehaviour
     public float knockbackForce = 10f;
     public float knockbackUp = 2f;
 
-   public void TakeHit(Transform attacker)
+public void TakeHit(Transform attacker)
 {
+    float dir = transform.position.x < attacker.position.x ? -1 : 1;
+
     rb.linearVelocity = Vector2.zero;
-
-    float dx = transform.position.x - attacker.position.x;
-
-    float dir = dx > 0 ? 1 : -1; // Nunca da 0
 
     Vector2 force = new Vector2(dir * knockbackForce, knockbackUp);
 
     rb.AddForce(force, ForceMode2D.Impulse);
 
-    Debug.Log("Knockback dir = " + dir + "   dx = " + dx);
+    Debug.Log("Golpe recibido. Dirección: " + dir + "  Fuerza: " + force);
 }
+
 
 }
