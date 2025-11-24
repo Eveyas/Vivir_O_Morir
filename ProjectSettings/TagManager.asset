@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Player 1
-  - Player 2
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
@@ -13,7 +13,7 @@ TagManager:
   - Piso
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
