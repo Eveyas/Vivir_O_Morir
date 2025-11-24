@@ -10308,6 +10308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorY: -5.495047
+  offsetY: 0.3
 --- !u!1001 &1410854614
 PrefabInstance:
   m_ObjectHideFlags: 0
