@@ -1,13 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerItems : MonoBehaviour
+public class PlayerItems2 : MonoBehaviour
 {
     public PowerUpPickup.ItemType? currentItem = null;
 
     // Referencias: asigna desde el Inspector
-    public Player1_Movimiento movementScript;     
-    public Player2_Movimiento otherPlayerMovement;
+    public Player2_Movimiento movementScript;     
+    public Player1_Movimiento otherPlayerMovement;
 
     // Configuración
     public float boostDuration = 2f;

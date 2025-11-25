@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player1_Movimiento : MonoBehaviour
+public class Player1_Movimiento : MonoBehaviour, IKnockbackable // <-- ¡IMPLEMENTACIÓN DE LA INTERFAZ!
 {
     // --- Físicas y Velocidades ---
     [Header("Ajustes de Movimiento")]
@@ -195,6 +195,7 @@ public class Player1_Movimiento : MonoBehaviour
     }
 
     // Aplicar retroceso (knockback) y aturdir durante una duración
+    // Este método cumple con el contrato de la interfaz IKnockbackable
     public void Knockback(Vector2 velocidadKnockback, float dur)
     {
         if (estaMuerto) return;
