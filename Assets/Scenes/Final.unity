@@ -824,7 +824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 934.2, y: 377.7}
+  m_AnchoredPosition: {x: 808.7, y: 338.4}
   m_SizeDelta: {x: 633.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724713026
@@ -1169,7 +1169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 933.8, y: 525.6}
+  m_AnchoredPosition: {x: 807.4, y: 491.1}
   m_SizeDelta: {x: 633.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1152125167
@@ -1663,6 +1663,8 @@ MonoBehaviour:
   capaDelSuelo:
     serializedVersion: 2
     m_Bits: 9
+  gravityScale: 1
+  maxSaltos: 1
   puntoRespawn: {fileID: 0}
 --- !u!114 &1942728513
 MonoBehaviour:
@@ -2070,7 +2072,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 580.2, y: 265.21}
+  m_AnchoredPosition: {x: 462.4, y: 226.7}
   m_SizeDelta: {x: 633.3, y: 50}
   m_Pivot: {x: 0.47, y: 0.5}
 --- !u!114 &2118315245
