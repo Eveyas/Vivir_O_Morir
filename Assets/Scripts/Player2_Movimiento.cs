@@ -31,6 +31,11 @@ public class Player2_Movimiento : MonoBehaviour, IKnockbackable // <-- ¡Impleme
 
     private const float radioCheckSuelo = 0.2f;
 
+    [Header("Efecto Visual de Parálisis")]
+    public SpriteRenderer spriteRenderer;
+    public Color paralizadoColor = new Color(0.3f, 0.5f, 1f, 1f); // Azul suave
+    private Color normalColor;
+
     void Awake()
     {
         if (rb == null)
@@ -48,6 +53,10 @@ public class Player2_Movimiento : MonoBehaviour, IKnockbackable // <-- ¡Impleme
             var mat = new PhysicsMaterial2D("Player_NoFriction") { friction = 0f, bounciness = 0f };
             playerCollider.sharedMaterial = mat;
         }
+
+        if (spriteRenderer == null)
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        normalColor = spriteRenderer.color;
     }
 
     void Start()
@@ -172,14 +181,23 @@ public class Player2_Movimiento : MonoBehaviour, IKnockbackable // <-- ¡Impleme
     private IEnumerator AturdirCoroutine(float dur, bool clearVelocity)
     {
         estaAturdido = true;
+
+        // Desactivar movimiento
         inputHorizontal = 0f;
 
+        // Limpiar velocidad si se requiere
         if (clearVelocity && rb != null)
-        {
             rb.linearVelocity = Vector2.zero;
-        }
+
+        // ACTIVAR EFECTO VISUAL
+        if (spriteRenderer != null)
+            spriteRenderer.color = paralizadoColor;
 
         yield return new WaitForSeconds(dur);
+
+        // DESACTIVAR EFECTO VISUAL
+        if (spriteRenderer != null)
+            spriteRenderer.color = normalColor;
 
         estaAturdido = false;
     }
